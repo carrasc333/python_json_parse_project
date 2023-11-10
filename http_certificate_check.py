@@ -12,10 +12,13 @@ try:
     output_data = json.loads(result.stdout)
 
     # Extract the specific field (e.g., "person")
-    specific_field = output_data.get("shadow", {}).get("metadata", {}).get("reported", {}).get("status", {}).get("httpCertificate", {})
+    specific_field = output_data.get("shadow", {}).get("state", {}).get("reported", {}).get("status", {}).get("httpCertificate", {})
+
+    # Convert the data to a JSON-formatted string
+    json_data = json.dumps(specific_field, indent=2)
 
     #print(output_data)
-    print(specific_field)
+    print("HTTP Certificate Experiation is",json_data)
 
 
 
