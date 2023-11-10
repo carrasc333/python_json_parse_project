@@ -9,13 +9,13 @@ result = subprocess.run(['op', 'core', 'describe-acu', '--options', 'withShadows
 
 # Parse the output string as JSON
 try:
-    output_data = json.loads(result)
+    output_data = json.loads(result.stdout)
 
     # Extract the specific field (e.g., "person")
-    #specific_field = output_data.get("httpCertificate", {})
+    specific_field = output_data.get("shadow", {})
 
-    print(output_data)
-    #print(specific_field)
+    #print(output_data)
+    print(specific_field)
 
 
 
