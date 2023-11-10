@@ -12,7 +12,7 @@ try:
     output_data = json.loads(result.stdout)
 
     # Extract the specific field (e.g., "person")
-    specific_field = output_data.get("shadow", {})
+    specific_field = output_data.get("shadow", {}).get("metadata", {}).get("reported", {}).get("status", {}).get("httpCertificate", {})
 
     #print(output_data)
     print(specific_field)
