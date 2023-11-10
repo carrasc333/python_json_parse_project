@@ -12,14 +12,14 @@ try:
     output_data = json.loads(result.stdout)
 
     # Extract the specific field (e.g., "person")
-    specific_field = output_data.get("shadow", {}).get("state", {}).get("reported", {}).get("status", {}).get("httpCertificate", {})
-
+    expiration_date = output_data.get("shadow", {}).get("state", {}).get("reported", {}).get("status", {}).get("httpCertificate", {}).get("notAfter", {})
+    percent_life_remaining = output_data.get("shadow", {}).get("state", {}).get("reported", {}).get("status", {}).get("httpCertificate", {}).get("percentLifeRemaining", {})
     # Convert the data to a JSON-formatted string
-    json_data = json.dumps(specific_field, indent=2)
+    #json_data = json.dumps(specific_field, indent=2)
 
     #print(output_data)
-    print("HTTP Certificate Experiation is",json_data)
-
+    print("HTTP Certificate Experiation Date is",expiration_date)
+    print("Percent of Certificat Life Remaining",percent_life_remaining)
 
 
 except json.JSONDecodeError as e:
