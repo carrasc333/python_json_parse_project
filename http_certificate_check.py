@@ -7,11 +7,11 @@ org = 771
 acu = 34342
 
 # Run the external script
-result = subprocess.run(['op', 'core', 'describe-acu', '--options', 'withShadows', '771', '34342'], capture_output=True, text=True)
+result = subprocess.run(['op', 'core', 'describe-acu', '--options', 'withShadows', f'{org}', f'{acu}'], capture_output=True, text=True)
 
+#print(result)
 
-
-# Parse the output string as JSON
+#Parse the output string as JSON
 try:
     output_data = json.loads(result.stdout)
 
