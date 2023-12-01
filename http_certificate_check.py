@@ -9,6 +9,7 @@ acu = 34342
 # Run the external script
 result = subprocess.run(['op', 'core', 'describe-acu', '--options', 'withShadows', f'{org}', f'{acu}'], capture_output=True, text=True)
 
+
 #print(result)
 
 #Parse the output string as JSON
